@@ -32,23 +32,23 @@
                     android:id="@+id/txtKitchen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Kitchen"
+                    android:text="My  Kitchen"
                     android:textColor="#FFFFFF"
-                    android:textSize="22sp" />
+                    android:textSize="30sp" />
 
                 <TextView
-                    android:text="12 items"
-                    android:layout_below="@id/txtKitchen"
-                    android:textSize="14dp"
-                    android:textColor="#52BAFF"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtKitchen"
+                    android:text="12 items"
+                    android:textColor="#52BAFF"
+                    android:textSize="16dp" />
 
                 <ImageView
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/baseline_menu_book_24"
-                    android:layout_width="82dp"
-                    android:layout_height="82dp"/>
+                    android:src="@drawable/person"
+                    android:layout_width="132dp"
+                    android:layout_height="132dp"/>
 
             </RelativeLayout>
 
@@ -79,18 +79,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:src="@drawable/baseline_menu_book_24"
+                    <ImageButton
+                        android:id="@+id/recipe_button"
+                        android:background="@drawable/baseline_menu_book_24"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Recipes"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -112,7 +113,39 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/baseline_menu_book_24"
+                        android:src="@drawable/baseline_favorite_24"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Favorites"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="2"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:src="@drawable/baseline_date_range_24"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -144,17 +177,17 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/baseline_menu_book_24"
+                        android:src="@drawable/baseline_receipt_long_24"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Shopping"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -176,17 +209,49 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/baseline_menu_book_24"
+                        android:src="@drawable/baseline_people_24"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Friends"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="2"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:src="@drawable/baseline_add_circle_outline_24"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Create"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

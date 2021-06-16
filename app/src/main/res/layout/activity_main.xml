@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
         <RelativeLayout
             android:layout_marginTop="32dp"
             android:layout_marginRight="20dp"
@@ -23,7 +23,7 @@
                 android:id="@+id/txtDashboard"
                 android:text="My Dashboard"
                 android:textSize="22sp"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -35,93 +35,115 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:src="@drawable/abc_vector_test"
+            <ImageButton
+                android:id="@+id/dashboard_button"
                 android:layout_width="82dp"
-                android:layout_height="82dp"/>
-
+                android:layout_height="82dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/baseline_search_24" />
 
 
         </RelativeLayout>
 
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:columnOrderPreserved="false"
-            android:alignmentMode="alignMargins"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="62dp"
+            android:layout_marginBottom="62dp"
+            android:layout_gravity="center">
 
-            <androidx.cardview.widget.CardView
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:src="@drawable/plate_white_trans"/>
+
+            <LinearLayout
+                android:layout_marginTop="22dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/abc_vector_test"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:text="Today's Recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:text="M"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:src="@drawable/abc_vector_test"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
+            <Button
+                android:text="T"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
+            <Button
+                android:text="W"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <Button
+                android:text="T"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
-                    <ImageView
-                        android:src="@drawable/abc_vector_test"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+            <Button
+                android:text="F"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
-                    <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+            <Button
+                android:text="S"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
 
-            </androidx.cardview.widget.CardView>
+            <Button
+                android:text="S"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableBottom="@drawable/baseline_add_circle_outline_24" />
+        </LinearLayout>
 
-
-        </GridLayout>
-        
     </LinearLayout>
     
     
