@@ -7,14 +7,14 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
-        ImageButton playButton = findViewById(R.id.dashboard_button);
+        ImageButton playButton = findViewById(R.id.recipe_button);
 
         playButton.setOnClickListener(this);
     }
@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i;
 
         switch (v.getId()) {
-            case R.id.dashboard_button:
+            case R.id.recipe_button:
 
-                i = new Intent(this, HomeActivity.class);
+                i = new Intent(this, RecipeActivity.class);
 
                 startActivity(i);
 
