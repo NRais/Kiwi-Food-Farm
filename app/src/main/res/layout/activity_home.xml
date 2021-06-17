@@ -73,6 +73,7 @@
                 android:layout_margin="12dp">
 
                 <LinearLayout
+                    android:id="@+id/recipe_layout"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"

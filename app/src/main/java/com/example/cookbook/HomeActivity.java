@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,9 +15,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        ImageButton playButton = findViewById(R.id.recipe_button);
+        ImageButton recipeButton = findViewById(R.id.recipe_button);
+        LinearLayout recipeLayout = findViewById(R.id.recipe_layout);
 
-        playButton.setOnClickListener(this);
+        recipeButton.setOnClickListener(this);
+        recipeLayout.setOnClickListener(this);
     }
 
     @Override
@@ -26,6 +29,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.recipe_button:
+            case R.id.recipe_layout:
 
                 i = new Intent(this, RecipeActivity.class);
 

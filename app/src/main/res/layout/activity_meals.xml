@@ -34,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:ems="7"
                     android:textSize="30dp"
+                    android:selectAllOnFocus="true"
                     android:inputType="textPersonName"
                     android:text="Search..." />
 
@@ -48,6 +49,7 @@
         </LinearLayout>
 
         <GridLayout
+            android:id="@+id/recipeGridLayout"
             android:columnCount="2"
             android:rowCount="3"
             android:weightSum="1"
