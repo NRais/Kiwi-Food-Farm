@@ -25,10 +25,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Title"
+                android:tag="Title"
                 android:textColor="#6f6f6f"
                 android:textSize="18sp" />
             <ImageView
                 android:src="@drawable/round_button"
+                android:tag="IMAGE"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
@@ -45,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="$$"
+                android:tag="$$"
                 android:textColor="#6f6f6f"
                 android:textSize="18sp" />
 

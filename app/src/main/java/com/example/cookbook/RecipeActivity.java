@@ -24,6 +24,7 @@ import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
 
+    List<Recipe> allRecipes;
 
     List<Recipe> recipesList;
 
@@ -32,6 +33,19 @@ public class RecipeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meals);
+
+        // TODO dynamically generate
+        allRecipes = new ArrayList<>();
+        allRecipes.add(new Recipe("Pizza", "img", 1, 4));
+        allRecipes.add(new Recipe("Burgers", "img", 2, 3));
+        allRecipes.add(new Recipe("Pasta", "img", 1, 2));
+        allRecipes.add(new Recipe("Toastie", "img", 2, 1));
+        allRecipes.add(new Recipe("Omlet", "img", 2, 2));
+        allRecipes.add(new Recipe("Wraps", "img", 1, 3));
+        allRecipes.add(new Recipe("Tachos", "img", 2, 2));
+        allRecipes.add(new Recipe("Lentil Stew", "img", 1, 1));
+        allRecipes.add(new Recipe("Tamato Soup", "img", 2, 1));
+        allRecipes.add(new Recipe("Lamb Pie", "img", 1, 4));
 
         //setup recipes
         recipesList = new ArrayList<>();
@@ -46,7 +60,8 @@ public class RecipeActivity extends AppCompatActivity {
 
                 Log.d("HELLO", "Key Pressed :: " + s);
 
-                updateRecipes(s);
+                loadRecipes(s);
+                updateRecipes();
 
                 return false;
             }
@@ -54,20 +69,33 @@ public class RecipeActivity extends AppCompatActivity {
     }
 
     /**
-     * Function to update the recipes displayed
+     * Function to search for recipes based upon a string and populate the recipeList
      *
      * @param search
      */
-    private void updateRecipes(String search) {
+    private void loadRecipes(String search) {
+        recipesList.clear();
 
+        for (Recipe r : allRecipes) {
+            if (r.check(search)) {
+                recipesList.add(r);
+            }
+        }
+    }
 
+    /**
+     * Function to update the recipes displayed
+     *
+     */
+    private void updateRecipes() {
 
         GridLayout grid = findViewById(R.id.recipeGridLayout);
 
         grid.removeAllViews(); // clear
 
+        int i = 0;
         /* for each item in list */
-        for (int i = 0; i < 8; i++) { //Recipe r  : recipesList) {
+        for (Recipe r  : recipesList) {
 
             GridLayout.LayoutParams parem = new GridLayout.LayoutParams(GridLayout.spec(GridLayout.UNDEFINED, 1f),      GridLayout.spec(GridLayout.UNDEFINED, 1f));
             parem.setMargins(25, 18, 18, 12);
@@ -76,8 +104,24 @@ public class RecipeActivity extends AppCompatActivity {
             anItem.setLayoutParams(parem);
             anItem.setPadding(12,12,12,12);
 
-            recursivelySet(anItem, "A", "LOL", "HEE", "HAA");
+            recursivelySet(anItem, r.name, r.image, r.cost, r.rating);
 
+            grid.addView(anItem);
+
+            i++;
+        }
+
+        // for 1 item we pad with an empty item
+        if (i == 1) {
+            GridLayout.LayoutParams parem = new GridLayout.LayoutParams(GridLayout.spec(GridLayout.UNDEFINED, 1f),      GridLayout.spec(GridLayout.UNDEFINED, 1f));
+            parem.setMargins(25, 18, 18, 12);
+
+            CardView anItem = (CardView) getLayoutInflater().inflate(R.layout.recipe_card, null);
+            anItem.setLayoutParams(parem);
+            anItem.setPadding(12,12,12,12);
+            anItem.setBackgroundResource(R.color.transparent);
+
+            recursivelySet(anItem, "", null, -1, -1);
 
             grid.addView(anItem);
         }
@@ -94,7 +138,7 @@ public class RecipeActivity extends AppCompatActivity {
      * @param rating
      * @param cost
      */
-    private void recursivelySet(ViewGroup v, String name, String image, String rating, String cost) {
+    private void recursivelySet(ViewGroup v, String name, String image, int cost, int rating) {
 
         int items = v.getChildCount();
 
@@ -104,7 +148,7 @@ public class RecipeActivity extends AppCompatActivity {
             if (v.getChildAt(j) instanceof LinearLayout) {
                 LinearLayout child = (LinearLayout) v.getChildAt(j);
 
-                recursivelySet(child, name, image, rating, cost);
+                recursivelySet(child, name, image, cost, rating);
             }
             // for textviews check which it is and set the text property
             else if (v.getChildAt(j) instanceof TextView) {
@@ -112,8 +156,8 @@ public class RecipeActivity extends AppCompatActivity {
                 TextView child = (TextView) v.getChildAt(j);
 
                 // cost or name
-                if (child.getText().equals("$$")) {
-                    child.setText(cost);
+                if (child.getTag().equals("$$")) {
+                    child.setText(  new String(new char[cost]).replace('\0', '$')  ); // NOTE: this is a cursed line that generates X number of $ symbols based upon int cost
                 } else {
                     child.setText(name);
                 }
@@ -124,11 +168,19 @@ public class RecipeActivity extends AppCompatActivity {
                 ImageView child = (ImageView) v.getChildAt(j);
 
                 // review or image
-                if (child.getTag() != null && child.getTag().equals("##")) {
-                    child.setImageResource(R.drawable.baseline_schedule_24);
+                if (child.getTag().equals("##")) {
+                    if (rating == -1) {
+                        child.setImageResource(0);
+                    } else {
+                        child.setImageResource(R.drawable.baseline_schedule_24);
+                    }
                 } else {
-                    Drawable res = ResourcesCompat.getDrawable(getResources(), R.drawable.round_button, null);
-                    child.setImageDrawable(res);
+                    if (image == null) {
+                        child.setImageResource(0);
+                    } else {
+                        Drawable res = ResourcesCompat.getDrawable(getResources(), R.drawable.round_button, null);
+                        child.setImageDrawable(res);
+                    }
                 }
             }
         }
