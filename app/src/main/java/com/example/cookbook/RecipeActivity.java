@@ -48,7 +48,10 @@ public class RecipeActivity extends AppCompatActivity {
         allRecipes.add(new Recipe("Lamb Pie", "img", 1, 4));
 
         //setup recipes
-        recipesList = new ArrayList<>();
+        recipesList = new ArrayList<>(allRecipes);
+
+        updateRecipes();
+
 
         EditText search = findViewById(R.id.editText);
 
@@ -121,7 +124,7 @@ public class RecipeActivity extends AppCompatActivity {
             anItem.setPadding(12,12,12,12);
             anItem.setBackgroundResource(R.color.transparent);
 
-            recursivelySet(anItem, "", null, -1, -1);
+            recursivelySet(anItem, "", null, 0, -1);
 
             grid.addView(anItem);
         }
@@ -157,6 +160,7 @@ public class RecipeActivity extends AppCompatActivity {
 
                 // cost or name
                 if (child.getTag().equals("$$")) {
+                    //TODO probably replace this with an image
                     child.setText(  new String(new char[cost]).replace('\0', '$')  ); // NOTE: this is a cursed line that generates X number of $ symbols based upon int cost
                 } else {
                     child.setText(name);
